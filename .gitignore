@@ -1,0 +1,15 @@
+# .gitignore
+
+# Django
+__pycache__
+db.sqlite3
+*.pyc
+*.pyo
+*.pyd
+
+# Node.js
+node_modules/
+.DS_Store
+
+# Vite
+dist/
