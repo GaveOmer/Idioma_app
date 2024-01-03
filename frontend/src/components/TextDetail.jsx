@@ -1,27 +1,33 @@
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+const TextDetail = () => {
+  const [data, setData] = useState([])
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/')
+      .then(response => {
+        setData(response.data)
+      })
+      .catch(error => {
+        console.error("error is here:", error)
+      })
+  }, [])
 
-// const TextDetail = () => {
-// 	const [data, setData] = useState([])
-// 	useEffect(() => {
-// 		axios
-// 			.get('http://localhost:8000/api/')
-// 			.then((response) => {
-// 				setData(response.data.data)
-// 			})
-// 			.catch((error) => {
-// 				console.log(error)
-// 			})
-// 	}, [])
+	return (
+		<div>
+      <ul>
+        {data.map(item => (
+          <li key={item.id}>
+            <p>{item.id}</p>
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
+            <p>{item.body}</p>
+          </li>
+        ))}
+      </ul>
+		</div>
+	)
+}
 
-// 	return (
-// 		<div>
-// 			<h2></h2>
-// 			<p></p>
-// 			<p></p>
-// 		</div>
-// 	)
-// }
-
-// export default TextDetail
+export default TextDetail
 
 

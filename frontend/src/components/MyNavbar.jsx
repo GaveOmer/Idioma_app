@@ -2,7 +2,7 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 
 const MyNavbar = () => {
   return (
-    <Navbar expand="lg" style={{ backgroundColor: '#A35 6CC' }}>
+    <Navbar expand="lg" style={{ backgroundColor: '#A356CC' }}>
       <Container>
         <Navbar.Brand href="/" className="fs-4 nav-link">
           <div className="fs-2 me-2">🦄&nbsp;&nbsp;Idioma</div>
