@@ -9,7 +9,7 @@ class TextView(APIView):
     output = [{"title": output.title,
                "description": output.description,
                "body": output.body,
-               "id": output.id}
+               "slug": output.slug}
               for output in Text.objects.all()]
     return Response(output)
   def post(self, request):
@@ -17,3 +17,6 @@ class TextView(APIView):
     if serializer.is_valid(raise_exception=True):
       serializer.save()
       return Response(serializer.data)
+    
+ 
+      

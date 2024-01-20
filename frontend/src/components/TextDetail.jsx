@@ -1,31 +1,24 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
+import GetTextData from './GetTextData'
+import { useParams } from 'react-router-dom'
 const TextDetail = () => {
-  const [data, setData] = useState([])
-  useEffect(() => {
-    axios.get('http://localhost:8000/api/')
-      .then(response => {
-        setData(response.data)
-      })
-      .catch(error => {
-        console.error("error is here:", error)
-      })
-  }, [])
+  const { slug } = useParams()
+  const [receivedData, setReceievedData] = useState([])
+	const handleDataReceived = (data) => {
+		setReceievedData(data)
+  }
+	return 
+		// <div>
+    //   <GetTextData onDataReceived={handleDataReceived}/>
+    //     {receivedData.map(item => (
+    //       <div key={item.id}>
+    //         {if (item.id === id)
+    //         {
+    //           <p></p>
+    //         }}
+    //     ))}<div/>
+		// </div>
 
-	return (
-		<div>
-      <ul>
-        {data.map(item => (
-          <li key={item.id}>
-            <p>{item.id}</p>
-            <strong>{item.title}</strong>
-            <p>{item.description}</p>
-            <p>{item.body}</p>
-          </li>
-        ))}
-      </ul>
-		</div>
-	)
 }
 
 export default TextDetail
